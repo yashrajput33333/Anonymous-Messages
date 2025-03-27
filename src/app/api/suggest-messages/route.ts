@@ -33,8 +33,8 @@ export async function POST() {
           'No response received.';
     
         return Response.json({ output });
-      } catch (error: any) {
-        console.error('Error:', error.response?.data || error.message);
+      } catch (error) {
+        console.error('Error:', (error as Error).message);
         return Response.json(
           { error: 'Failed to generate response.' },
           { status: 500 }
